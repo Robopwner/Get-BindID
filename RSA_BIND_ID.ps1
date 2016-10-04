@@ -1,8 +1,6 @@
 ﻿Function Get-BindID
 {
-    [CmdletBinding(
-        DefaultParameterSetName = "_AllParameterSets"
-    )]
+    [CmdletBinding(DefaultParameterSetName = "_AllParameterSets")]
     Param()
     [Parameter()][Switch]$local
     Process{
