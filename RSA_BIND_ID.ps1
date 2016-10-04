@@ -1,8 +1,14 @@
 ﻿Function Get-BindID
 {
-    [CmdletBinding(DefaultParameterSetName = "_AllParameterSets")]
-    Param()
-    [Parameter()][Switch]$local
+    [CmdletBinding(
+        DefaultParameterSetName = "_AllParameterSets"
+    )]
+    [OutputType()]
+    Param(
+        [Parameter(
+            Mandatory = $false,
+            ParameterSetName = "Local"
+    )]
     Process{
     Write-Verbose -Message "Gathering strings"
     #Gather information to become the RSA Binding ID
