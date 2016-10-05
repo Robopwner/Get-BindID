@@ -27,5 +27,4 @@ Function Get-BindID
         0, 20 #Character length of the RSA Binding ID.
     )
     Write-Output $BindID
-    } #Process
 } #Function Get-BindID
