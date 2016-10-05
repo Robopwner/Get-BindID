@@ -27,7 +27,8 @@
         Write-Verbose -Message "$RSA"
     } #Function Get-BindID-localstring
 
-    Function Get-BindID-CreateBindID   
+    Function Get-BindID-CreateBindID
+    {
         #Create a SHA1 hash to the $RSASTRING 
         $sha1 = [Type]"System.Security.Cryptography.SHA1" 
         $crypto = $sha1::Create() 
