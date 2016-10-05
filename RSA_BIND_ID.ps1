@@ -1,4 +1,4 @@
-﻿Function Get-BindID 
+Function Get-BindID 
 { 
     [CmdletBinding(DefaultParameterSetName = "_AllParameterSets")]
     [OutputType()] 
@@ -6,13 +6,19 @@
             [Parameter( 
                 Mandatory = $false, 
                 ParameterSetName = "local")]
-            [switch]$local,
+            [switch]$local, #Create the -local switch
 
             [Parameter(
                 Mandatory = $false,
                 ParameterSetName = "csv")]
-            [switch]$csv
+            [switch]$csv #Create the -csv switch
     )
+    if ($PSCmdlet.ParameterSetName -eq "local") {
+        Write-Verbose -Message "Using Local Data"
+        Get-BindID-LocalString
+        Get-BindID-CreateBindID
+    }
+
 
     Function Get-BindID-LocalString
     {
@@ -28,7 +34,7 @@
     } #Function Get-BindID-localstring
 
     Function Get-BindID-CreateBindID
-    {
+    {   
         #Create a SHA1 hash to the $RSASTRING 
         $sha1 = [Type]"System.Security.Cryptography.SHA1" 
         $crypto = $sha1::Create() 
